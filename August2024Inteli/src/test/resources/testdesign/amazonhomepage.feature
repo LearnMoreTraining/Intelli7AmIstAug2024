@@ -1,4 +1,4 @@
-Feature: Amazon Homepage validations
+Feature: Amazon Homepage
 
   @amazon01
   Scenario: validation of search functionality

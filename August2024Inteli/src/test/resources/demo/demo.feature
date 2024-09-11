@@ -1,2 +1,0 @@
-Feature:  demo
-  Scenario: demo
