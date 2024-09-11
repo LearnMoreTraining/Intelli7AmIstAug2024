@@ -6,13 +6,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utility.BaseCode;
 
 public class SalesForceSteps {
     WebDriver driver; //null
 
+    public SalesForceSteps(){
+        BaseCode baseCode = new BaseCode();
+        driver = baseCode.getWebDriver();
+    }
+
     @Given("user navigates to salesforce login page")
     public void salesforce(){
-      driver   = new ChromeDriver();
+
     }
 
     @When("user enter the username {string} and password {string}")

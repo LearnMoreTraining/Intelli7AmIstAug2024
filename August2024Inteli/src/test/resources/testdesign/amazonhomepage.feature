@@ -11,3 +11,8 @@ Feature: Amazon Homepage
   Scenario: Dropdown validation
     Given user navigates to amazon homepage
     When user extracts all the values
+
+     @amazon03
+  Scenario: Baby wish list validation
+   Given user navigates to baby wishlist page
+   Then verify the baby wishlist text

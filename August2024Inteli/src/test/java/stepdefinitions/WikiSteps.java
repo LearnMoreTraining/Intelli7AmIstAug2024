@@ -33,7 +33,7 @@ public class WikiSteps {
        int s =driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[2]"))
                .size();
         for(int d=0 ; d < s ;d++ ){
-          String shareHoldingValue=  driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[2]"))
+          String shareHoldingValue =  driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[2]"))
                   .get(d).getText();
             System.out.println(shareHoldingValue);
         }
