@@ -8,10 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utility.BaseCode;
 
+import java.io.IOException;
+
 public class SalesForceSteps {
     WebDriver driver; //null
 
-    public SalesForceSteps(){
+    public SalesForceSteps() throws IOException {
         BaseCode baseCode = new BaseCode();
         driver = baseCode.getWebDriver();
     }
