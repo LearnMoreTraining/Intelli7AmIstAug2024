@@ -19,7 +19,7 @@ public class ConstructorExample {
     }
 
     public static void main(String[] args) {
-        ConstructorExample c = new ConstructorExample();
+        ConstructorExample c = new ConstructorExample(34);
         System.out.println(a);
         System.out.println(b);
     }
