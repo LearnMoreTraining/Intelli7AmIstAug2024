@@ -4,11 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import pageobjects.BabyWishListPage;
+import pageobjects.HomePage;
 import utility.BaseCode;
 
 import java.io.IOException;
@@ -16,10 +19,14 @@ import java.io.IOException;
 public class AmazonHomePageSteps {
 
     WebDriver driver ;  //global variable
+    BabyWishListPage babyWishListPage;
+    HomePage homePage ;
 
     public AmazonHomePageSteps() throws IOException {
         BaseCode baseCode = new BaseCode();
         driver = baseCode.getWebDriver();
+        babyWishListPage = new BabyWishListPage(driver);
+        homePage = new HomePage(driver);
     }
 
     @Given("user navigates to amazon homepage")
@@ -30,12 +37,13 @@ public class AmazonHomePageSteps {
 
     @And("user clicks the search icon")
     public void searchIcon(){
-        driver.findElement(By.xpath("//input[@value='Go']")).click();
+
+      homePage.clickSearchIcon();
     }
 
     @When("user enter the product name {string}")
     public void enterproductName(String productName){
-          driver.findElement(By.id("twotabsearchtextbox")).sendKeys(productName);
+          homePage.enterProductName(productName);
     }
 
     @Then("user verify the title of page")
@@ -45,29 +53,18 @@ public class AmazonHomePageSteps {
 
     @When("user extracts all the values")
     public void userExtractsAllTheValues() {
-        WebElement dropdownelement = driver.findElement(By.id("searchDropdownBox"));
-       int dropdownSize = dropdownelement.findElements(By.tagName("option")).size();
 
-        for(int i =0 ; i< dropdownSize ; i++){
-
-           String dropdownValues= dropdownelement.findElements(By.tagName("option")).get(i).getText();
-            System.out.println(dropdownValues);
-        }
     }
 
     @Given("user navigates to baby wishlist page")
     public void userNavigatesToBabyWishlistPage() {
-        WebElement accountElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
-        Actions a = new Actions(driver);
-        a.clickAndHold(accountElement).build().perform();
-        driver.findElement(By.xpath("//span[text()='Baby Wishlist']")).click();
+      homePage.clickBabyWishList();
     }
 
     @Then("verify the baby wishlist text")
     public void verifyTheBabyWishlistText() {
 
-      String text=  driver.findElement(By.xpath("//div[@class='a-section a-spacing-none _gift-registry-header-desktop_style_headerCard__3kHDW']/child::div/child::h2")).getText();
-        System.out.println(text);
+        Assert.assertEquals("Baby", babyWishListPage.getBabyWishListText());
 
     }
 }
