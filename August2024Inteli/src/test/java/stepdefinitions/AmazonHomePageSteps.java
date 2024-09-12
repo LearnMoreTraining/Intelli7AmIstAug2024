@@ -11,11 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import utility.BaseCode;
 
+import java.io.IOException;
+
 public class AmazonHomePageSteps {
 
     WebDriver driver ;  //global variable
 
-    public AmazonHomePageSteps(){
+    public AmazonHomePageSteps() throws IOException {
         BaseCode baseCode = new BaseCode();
         driver = baseCode.getWebDriver();
     }
