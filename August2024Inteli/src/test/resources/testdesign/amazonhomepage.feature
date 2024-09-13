@@ -9,7 +9,7 @@ Feature: Amazon Homepage
 
    @amazon02
   Scenario: Dropdown validation
-    Given user navigates to amazon homepage
+    Given user selects the value from the category dropdown
     When user extracts all the values
 
      @amazon03

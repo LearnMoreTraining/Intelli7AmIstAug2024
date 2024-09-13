@@ -13,20 +13,20 @@ import org.openqa.selenium.interactions.Actions;
 import pageobjects.BabyWishListPage;
 import pageobjects.HomePage;
 import utility.BaseCode;
+import utility.PageObjectManager;
 
 import java.io.IOException;
 
 public class AmazonHomePageSteps {
 
     WebDriver driver ;  //global variable
-    BabyWishListPage babyWishListPage;
-    HomePage homePage ;
+    PageObjectManager pageObjectManager;
 
     public AmazonHomePageSteps() throws IOException {
         BaseCode baseCode = new BaseCode();
         driver = baseCode.getWebDriver();
-        babyWishListPage = new BabyWishListPage(driver);
-        homePage = new HomePage(driver);
+        pageObjectManager = new PageObjectManager(driver);
+
     }
 
     @Given("user navigates to amazon homepage")
@@ -37,13 +37,14 @@ public class AmazonHomePageSteps {
 
     @And("user clicks the search icon")
     public void searchIcon(){
+        pageObjectManager.getHomePage().clickSearchIcon();
 
-      homePage.clickSearchIcon();
     }
 
     @When("user enter the product name {string}")
     public void enterproductName(String productName){
-          homePage.enterProductName(productName);
+        pageObjectManager.getHomePage().enterProductName(productName);
+
     }
 
     @Then("user verify the title of page")
@@ -53,18 +54,24 @@ public class AmazonHomePageSteps {
 
     @When("user extracts all the values")
     public void userExtractsAllTheValues() {
-
+            pageObjectManager.getHomePage().getDropdownText();
     }
 
     @Given("user navigates to baby wishlist page")
     public void userNavigatesToBabyWishlistPage() {
-      homePage.clickBabyWishList();
+      pageObjectManager.getHomePage().clickBabyWishList();
     }
 
     @Then("verify the baby wishlist text")
     public void verifyTheBabyWishlistText() {
 
-        Assert.assertEquals("Baby", babyWishListPage.getBabyWishListText());
+        Assert.assertEquals("Baby", pageObjectManager.getBabyWishListPage().getBabyWishListText());
 
+    }
+
+    @Given("user selects the value from the category dropdown")
+    public void userSelectsTheValueFromTheCategoryDropdown() {
+
+            pageObjectManager.getHomePage().selectDropdownValue();
     }
 }

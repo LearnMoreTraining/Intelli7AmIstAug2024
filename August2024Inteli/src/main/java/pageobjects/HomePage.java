@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
     WebDriver driver;
@@ -21,7 +22,11 @@ public class HomePage {
     }
 
     public void selectDropdownValue(){
-
+        WebElement categoryElement = driver.findElement(By.id("searchDropdownBox"));
+        Select categoryDropdown = new Select(categoryElement);
+       // categoryDropdown.selectByIndex(2);
+       // categoryDropdown.selectByVisibleText("Books");
+        categoryDropdown.selectByValue("search-alias=mobile-apps");
     }
 
     public void clickBabyWishList(){
