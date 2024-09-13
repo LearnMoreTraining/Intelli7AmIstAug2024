@@ -2,7 +2,7 @@ Feature: Functional validation of salesforce login page
 
   @sc01 @lmti
   Scenario: validation of login functionality
-    Given user navigates to salesforce login page
+   # Given user navigates to salesforce login page
     When user enter the username "lmti" and password "abc"
     And user clicks the login button
     Then user validates the navigation to the homepage
