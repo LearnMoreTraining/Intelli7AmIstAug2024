@@ -14,19 +14,16 @@ import pageobjects.BabyWishListPage;
 import pageobjects.HomePage;
 import utility.BaseCode;
 import utility.PageObjectManager;
+import utility.TestContext;
 
 import java.io.IOException;
 
 public class AmazonHomePageSteps {
 
-    WebDriver driver ;  //global variable
-    PageObjectManager pageObjectManager;
+    TestContext context;
 
-    public AmazonHomePageSteps() throws IOException {
-        BaseCode baseCode = new BaseCode();
-        driver = baseCode.getWebDriver();
-        pageObjectManager = new PageObjectManager(driver);
-
+    public AmazonHomePageSteps(TestContext context) throws IOException {
+            this.context = context;
     }
 
     @Given("user navigates to amazon homepage")
@@ -37,41 +34,42 @@ public class AmazonHomePageSteps {
 
     @And("user clicks the search icon")
     public void searchIcon(){
-        pageObjectManager.getHomePage().clickSearchIcon();
+        context.pageObjectManager.getHomePage().clickSearchIcon();
+
 
     }
 
     @When("user enter the product name {string}")
     public void enterproductName(String productName){
-        pageObjectManager.getHomePage().enterProductName(productName);
+       context.pageObjectManager.getHomePage().enterProductName(productName);
 
     }
 
     @Then("user verify the title of page")
-    public void validateTitle() {
-        System.out.println( driver.getTitle());
+    public void validateTitle() throws IOException {
+        System.out.println( context.baseCode.getWebDriver().getTitle());
     }
 
     @When("user extracts all the values")
     public void userExtractsAllTheValues() {
-            pageObjectManager.getHomePage().getDropdownText();
+            context.pageObjectManager.getHomePage().getDropdownText();
     }
 
     @Given("user navigates to baby wishlist page")
     public void userNavigatesToBabyWishlistPage() {
-      pageObjectManager.getHomePage().clickBabyWishList();
+      context.pageObjectManager.getHomePage().clickBabyWishList();
     }
 
     @Then("verify the baby wishlist text")
     public void verifyTheBabyWishlistText() {
 
-        Assert.assertEquals("Baby", pageObjectManager.getBabyWishListPage().getBabyWishListText());
+        Assert.assertEquals("Baby", context.pageObjectManager.getBabyWishListPage().getBabyWishListText());
 
     }
 
     @Given("user selects the value from the category dropdown")
     public void userSelectsTheValueFromTheCategoryDropdown() {
 
-            pageObjectManager.getHomePage().selectDropdownValue();
+            context.pageObjectManager.getHomePage().selectDropdownValue();
     }
 }

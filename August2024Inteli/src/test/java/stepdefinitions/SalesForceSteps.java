@@ -8,16 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utility.BaseCode;
 import utility.PageObjectManager;
+import utility.TestContext;
 
 import java.io.IOException;
 
 public class SalesForceSteps {
-    WebDriver driver; //null
-    PageObjectManager manager;
-    public SalesForceSteps() throws IOException {
-        BaseCode baseCode = new BaseCode();
-        driver = baseCode.getWebDriver();
-        manager = new PageObjectManager(driver);
+
+    TestContext context;
+    public SalesForceSteps(TestContext context) throws IOException {
+        this.context = context;
     }
 
     @Given("user navigates to salesforce login page")
@@ -27,8 +26,8 @@ public class SalesForceSteps {
 
     @When("user enter the username {string} and password {string}")
     public void userNameAndPassword(String userName, String password) {
-        manager.getSalesforceLoginPage().enterUsername();
-        manager.getSalesforceLoginPage().enterPassword();
+        context.pageObjectManager.getSalesforceLoginPage().enterUsername();
+        context.pageObjectManager.getSalesforceLoginPage().enterPassword();
     }
 
     @And("user clicks the login button")

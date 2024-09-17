@@ -1,10 +1,7 @@
 package utility;
 
 import org.openqa.selenium.WebDriver;
-import pageobjects.BabyWishListPage;
-import pageobjects.HomePage;
-import pageobjects.SalesForceLoginPage;
-import pageobjects.SpiceJetHome;
+import pageobjects.*;
 
 public class PageObjectManager {
 
@@ -36,5 +33,10 @@ public class PageObjectManager {
     public SalesForceLoginPage getSalesforceLoginPage(){
         SalesForceLoginPage salesForceLoginPage = new SalesForceLoginPage(driver);
         return salesForceLoginPage;
+    }
+
+    public WikiPage getWikiPage(){
+        WikiPage wikiPage = new WikiPage(driver);
+        return wikiPage;
     }
 }
