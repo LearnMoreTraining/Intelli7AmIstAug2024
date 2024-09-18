@@ -40,4 +40,10 @@ public class PageObjectManager {
         WikiPage wikiPage = new WikiPage(driver);
         return wikiPage;
     }
+
+    public AlertLearnMorePage getAlertLearnMorePage(){
+
+        AlertLearnMorePage alertLearnMorePage = new AlertLearnMorePage(driver);
+        return alertLearnMorePage;
+    }
 }

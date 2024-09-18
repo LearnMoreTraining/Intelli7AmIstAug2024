@@ -10,3 +10,10 @@ Feature: Learn More Page Automation
     Then verify the title
     #afterstep
     #after
+
+@lmti02
+  Scenario: Handling of Alert
+    Given user click on confirm Box
+    And verify the confirm box message
+    Then click on cancel button
+    And verify the Ui text
