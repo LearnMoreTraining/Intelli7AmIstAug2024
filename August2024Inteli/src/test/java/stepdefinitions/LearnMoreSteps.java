@@ -21,14 +21,14 @@ public class LearnMoreSteps {
         context.pageObjectManager.getLearnMoreHomePage()
                 .enterUserName()
                 .enterPassword()
-                .clickLoginButton()
-                .switchToChildWindow();
+                .clickLoginButton();
+
 
     }
 
     @Then("verify the title")
     public void verifyTheTitle() {
-
+        context.pageObjectManager.getLearnMoreHomePage().switchToChildWindow();
         Assert.assertEquals("Event Management",context.pageObjectManager.getLearnMoreHomePage().getChildWindowTitle());
     }
 }

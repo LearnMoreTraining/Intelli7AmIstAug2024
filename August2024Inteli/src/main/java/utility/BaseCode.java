@@ -37,6 +37,7 @@ public class BaseCode {
 
             driver.get(prob.getProperty("environement"));
             driver.manage().window().maximize();
+
         }
 
         return driver;
