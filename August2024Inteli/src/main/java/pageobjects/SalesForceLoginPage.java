@@ -20,7 +20,8 @@ public class SalesForceLoginPage {
     }
 
     public void clickLoginButton(){
-
+        driver.findElement(By.linkText("Forgot Your Password?")).click();
+        driver.findElement(By.partialLinkText("got Your Pas")).click();
     }
 
 }

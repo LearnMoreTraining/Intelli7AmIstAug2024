@@ -40,4 +40,6 @@ public class WikiSteps {
         Assert.assertEquals("Public",context.pageObjectManager.getWikiPage().getShareHolderValue().get(3));
         Assert.assertEquals("16.81%",context.pageObjectManager.getWikiPage().getShareHoldingValue().get(3));
     }
+
+
 }

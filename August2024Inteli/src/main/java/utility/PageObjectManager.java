@@ -26,8 +26,9 @@ public class PageObjectManager {
 
     }
 
-    public void getLearnMoreHomePage(){
-
+    public LearnMoreHomePage getLearnMoreHomePage(){
+            LearnMoreHomePage learnMoreHomePage = new LearnMoreHomePage(driver);
+            return learnMoreHomePage;
     }
 
     public SalesForceLoginPage getSalesforceLoginPage(){

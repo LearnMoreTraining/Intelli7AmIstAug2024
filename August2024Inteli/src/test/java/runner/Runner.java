@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
       features = {"src/test/resources/testdesign"},
       glue = {"stepdefinitions","hooks"},
-        tags = "@wiki01",
+        tags = "@lmti01",
         plugin = {"pretty",
                 "html:target/reports/cucumber.html",
-                "json:target/reports/test.json",
+                "json:target/reports/xyz.json",
                 "junit:target/reports/report.xml"}
 
 )

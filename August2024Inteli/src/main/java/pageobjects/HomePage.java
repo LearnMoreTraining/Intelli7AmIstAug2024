@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
     WebDriver driver;
+    String token;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -34,7 +35,8 @@ public class HomePage {
         WebElement accountElement = driver.findElement(By.id("nav-link-accountList-nav-line-1"));
         Actions a = new Actions(driver);
         a.clickAndHold(accountElement).build().perform();
-        driver.findElement(By.xpath("//span[text()='Baby Wishlist']")).click();
+        // driver.findElement(By.xpath("//span[text()='Baby Wishlist']")).click();
+        driver.findElement(By.linkText("Baby Wishlist")).click();
     }
 
     public void getDropdownText(){
@@ -46,5 +48,13 @@ public class HomePage {
             String dropdownValues= dropdownelement.findElements(By.tagName("option")).get(i).getText();
             System.out.println(dropdownValues);
         }
+    }
+
+    public void parentWindow(){
+      token =  driver.findElement(By.id("1223")).getText();
+    }
+
+    public void childWindow(){
+        driver.findElement(By.id("qw")).sendKeys(token);
     }
 }
