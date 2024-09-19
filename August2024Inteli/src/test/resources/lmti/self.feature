@@ -1,3 +1,0 @@
-Featurwe
-  shdsaal
-  \hwsips
