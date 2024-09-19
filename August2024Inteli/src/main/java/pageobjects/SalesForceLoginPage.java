@@ -2,6 +2,9 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utility.ExcelHandler;
+
+import java.io.IOException;
 
 public class SalesForceLoginPage {
 
@@ -10,13 +13,13 @@ public class SalesForceLoginPage {
        this.driver = driver;
     }
 
-    public void enterUsername(){
+    public void enterUsername() throws IOException {
 
-        driver.findElement(By.id("username")).sendKeys("abc");
+        driver.findElement(By.id("username")).sendKeys(ExcelHandler.getExcelData("login",1,0));
     }
 
-    public void enterPassword(){
-        driver.findElement(By.id("password")).sendKeys("123");
+    public void enterPassword() throws IOException {
+        driver.findElement(By.id("password")).sendKeys(ExcelHandler.getExcelData("login",1,1));
     }
 
     public void clickLoginButton(){

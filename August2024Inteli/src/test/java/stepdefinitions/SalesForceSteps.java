@@ -25,7 +25,7 @@ public class SalesForceSteps {
     }
 
     @When("user enter the username {string} and password {string}")
-    public void userNameAndPassword(String userName, String password) {
+    public void userNameAndPassword(String userName, String password) throws IOException {
         context.pageObjectManager.getSalesforceLoginPage().enterUsername();
         context.pageObjectManager.getSalesforceLoginPage().enterPassword();
     }
