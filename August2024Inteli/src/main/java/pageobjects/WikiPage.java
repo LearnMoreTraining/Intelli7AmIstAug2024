@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WikiPage {
 
@@ -35,5 +37,19 @@ public class WikiPage {
            shareHoldingValue.add(value);
         }
         return shareHoldingValue;
+    }
+
+
+    public Map<String, String> getShareHolderShareHoldingValue(){
+
+        int size= driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[1]")).size();
+        Map<String,String> m = new HashMap<String,String>();
+        for(int k=0 ; k < size ; k++){
+            String shareHolderValue = driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[1]")).get(k).getText();
+            String shareHoldingValue =  driver.findElements(By.xpath("//table[@class='wikitable sortable jquery-tablesorter']/child::tbody/child::tr/child::td[2]"))
+                    .get(k).getText();
+            m.put(shareHolderValue,shareHoldingValue);
+        }
+      return m;
     }
 }
