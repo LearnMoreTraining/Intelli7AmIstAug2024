@@ -46,4 +46,14 @@ public class PageObjectManager {
         AlertLearnMorePage alertLearnMorePage = new AlertLearnMorePage(driver);
         return alertLearnMorePage;
     }
+
+    public JqueyHomePage getJqueryPage(){
+        JqueyHomePage homePage = new JqueyHomePage(driver);
+        return homePage;
+    }
+
+    public LmtiExplicitWaitPage getExplictPage(){
+        LmtiExplicitWaitPage explicitWaitPage = new LmtiExplicitWaitPage(driver);
+        return explicitWaitPage;
+    }
 }

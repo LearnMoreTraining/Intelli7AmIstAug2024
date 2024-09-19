@@ -17,3 +17,8 @@ Feature: Learn More Page Automation
     And verify the confirm box message
     Then click on cancel button
     And verify the Ui text
+
+  @lmti03
+  Scenario: waits
+    Given user clicks on change text button
+    Then verify the text

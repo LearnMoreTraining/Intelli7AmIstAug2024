@@ -18,3 +18,8 @@ Feature: Amazon Homepage
   Scenario: Baby wish list validation
    Given user navigates to baby wishlist page
    Then verify the baby wishlist text
+
+   @drag
+  Scenario:  drag and drop
+   Given user perform drag and drop operation
+

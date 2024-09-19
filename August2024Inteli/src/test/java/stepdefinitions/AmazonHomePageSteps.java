@@ -72,4 +72,9 @@ public class AmazonHomePageSteps {
 
             context.pageObjectManager.getHomePage().selectDropdownValue();
     }
+
+    @Given("user perform drag and drop operation")
+    public void userPerformDragAndDropOperation() {
+            context.pageObjectManager.getJqueryPage().dragAndDrop();
+    }
 }
