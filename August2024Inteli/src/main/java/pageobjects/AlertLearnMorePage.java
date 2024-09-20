@@ -22,6 +22,7 @@ public class AlertLearnMorePage {
     }
 
     public String getUIText(){
+      //  driver.findElement(By.xpath("//input[normalize-space(@id)='username']")).click();
        return driver.findElement(By.cssSelector("#demo")).getText();
     }
 }
