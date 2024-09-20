@@ -9,10 +9,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class ExcelHandler {
+public class ExcelHandler extends BaseCode {
 
     public static String getExcelData(String sheetName, int row , int column) throws IOException {
-
         FileInputStream fis = new FileInputStream(new File("src/main/resources/testdata/TestDatas.xlsx"));
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
         XSSFSheet sheet = workbook.getSheet(sheetName);

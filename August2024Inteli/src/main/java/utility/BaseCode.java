@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class BaseCode {
 
-    WebDriver driver;
+   public WebDriver driver;
     public WebDriver getWebDriver() throws IOException {
 
         if(driver == null) {

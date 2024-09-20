@@ -33,5 +33,6 @@ public class Hooks {
         TakesScreenshot ts = (TakesScreenshot)context.baseCode.getWebDriver() ;
         byte[] byteData = ts.getScreenshotAs(OutputType.BYTES);
         sc.attach(byteData,"image/png",sc.getName());
+
     }
 }

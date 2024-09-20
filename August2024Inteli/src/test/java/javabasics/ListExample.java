@@ -23,6 +23,8 @@ public class ListExample {
         l2.add("lmti");
         l2.add("learnmore");
         System.out.println(l2);
+        l2.add(1,"abc");
+        System.out.println(l2);
 
     }
 }

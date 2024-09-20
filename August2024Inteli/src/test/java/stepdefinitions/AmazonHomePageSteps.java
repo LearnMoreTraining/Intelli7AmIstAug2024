@@ -74,7 +74,11 @@ public class AmazonHomePageSteps {
     }
 
     @Given("user perform drag and drop operation")
-    public void userPerformDragAndDropOperation() {
+    public void userPerformDragAndDropOperation() throws IOException {
             context.pageObjectManager.getJqueryPage().dragAndDrop();
+
+            context.pageObjectManager.getHomePage().selectFromDropdownValue("TRV");
+
+            context.pageObjectManager.getHomePage().enterProductName("login",1,1);
     }
 }

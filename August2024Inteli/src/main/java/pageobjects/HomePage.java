@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import utility.ExcelHandler;
+
+import java.io.IOException;
 
 public class HomePage {
     WebDriver driver;
@@ -16,6 +19,10 @@ public class HomePage {
 
     public void enterProductName(String productName){
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys(productName);
+    }
+
+    public void enterProductName(String sheetName, int row , int column) throws IOException {
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys(ExcelHandler.getExcelData(sheetName,row,column));
     }
 
     public void clickSearchIcon(){
@@ -56,5 +63,14 @@ public class HomePage {
 
     public void childWindow(){
         driver.findElement(By.id("qw")).sendKeys(token);
+    }
+
+    public void selectFromDropdownValue(String cityCode){
+
+            driver.findElement(By.xpath("//a[@value='"+cityCode+"']")).click();
+    }
+
+    public void selectSearchResult(String index){
+        driver.findElement(By.xpath("//div[@data-cel-widget='search_result_"+index+"']")).click();
     }
 }
