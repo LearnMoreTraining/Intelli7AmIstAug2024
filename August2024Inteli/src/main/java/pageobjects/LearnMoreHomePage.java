@@ -14,7 +14,9 @@ public class LearnMoreHomePage {
     }
 
     public LearnMoreHomePage enterUserName(){
-        driver.findElement(By.cssSelector("input[id='username']")).sendKeys("LearnMore");
+       String []username= driver.findElement(By.className("label")).getText().split("");
+       String username1 = username[1].trim();
+        driver.findElement(By.cssSelector("input[id='username']")).sendKeys(username1);
         return this;
     }
 

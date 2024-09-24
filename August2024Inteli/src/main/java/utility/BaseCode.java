@@ -16,14 +16,23 @@ import java.util.Properties;
 public class BaseCode {
 
    public WebDriver driver;
-    public WebDriver getWebDriver() throws IOException {
+    public WebDriver getWebDriver() {
 
         if(driver == null) {
 
             File f = new File("src/main/resources/configuration/frameworkconfig.properties");
-            FileInputStream fis = new FileInputStream(f);
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(f);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             Properties prob = new Properties();
-            prob.load(fis);
+            try {
+                prob.load(fis);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
             if (prob.getProperty("browser").equalsIgnoreCase("chrome")) {
                 driver = new ChromeDriver();

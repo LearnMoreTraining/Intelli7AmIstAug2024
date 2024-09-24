@@ -22,3 +22,7 @@ Feature: Learn More Page Automation
   Scenario: waits
     Given user clicks on change text button
     Then verify the text
+
+    @lmti04
+    Scenario: login
+      Given user enters the credits

@@ -1,8 +1,6 @@
 package pageobjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import utility.ExcelHandler;
@@ -18,7 +16,15 @@ public class HomePage {
     }
 
     public void enterProductName(String productName){
-        driver.findElement(By.id("twotabsearchtextbox")).sendKeys(productName);
+        try {
+            driver.findElement(By.id("twotabsearchtextbox")).sendKeys(productName);
+        }
+        catch(ElementClickInterceptedException a){
+            JavascriptExecutor j = (JavascriptExecutor) driver;
+            j.executeScript("window.scrollBy(0,1000)","");
+            j.executeScript("arguments[0].SetAttibute('value','iphone')",  driver.findElement(By.id("twotabsearchtextbox")));
+        }
+
     }
 
     public void enterProductName(String sheetName, int row , int column) throws IOException {

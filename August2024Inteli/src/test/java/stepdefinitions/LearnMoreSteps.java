@@ -65,4 +65,10 @@ public class LearnMoreSteps {
 
         Assert.assertEquals("Hello, Learn More Aspirants",context.pageObjectManager.getExplictPage().getChangeText());
     }
+
+    @Given("user enters the credits")
+    public void userEntersTheCredits() {
+
+        context.pageObjectManager.getLearnMoreHomePage().enterUserName();
+    }
 }
