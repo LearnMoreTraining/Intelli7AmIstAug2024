@@ -79,4 +79,8 @@ public class HomePage {
     public void selectSearchResult(String index){
         driver.findElement(By.xpath("//div[@data-cel-widget='search_result_"+index+"']")).click();
     }
+
+    public boolean radioButton(){
+      return  driver.findElement(By.id("ControlGroupSearchView_AvailabilitySearchInputSearchView_OneWay")).isDisplayed();
+    }
 }

@@ -80,5 +80,8 @@ public class AmazonHomePageSteps {
             context.pageObjectManager.getHomePage().selectFromDropdownValue("TRV");
 
             context.pageObjectManager.getHomePage().enterProductName("login",1,1);
+
+            Assert.assertTrue(context.pageObjectManager.getHomePage().radioButton());
+            Assert.assertFalse(false);
     }
 }
